@@ -25,4 +25,16 @@ public class MovieRepositoryImpl implements MovieRepository {
                              result.getString("winner"))
         );
     }
+
+    @Override
+    public void saveAll(List<Movie> movies) {
+        movies.forEach(this::saveMovie);
+    }
+
+    private void saveMovie(Movie movie) {
+        jdbcTemplate.update(
+                "INSERT INTO movie (year_award, title, studios, producers, winner) VALUES (?, ?, ?, ?, ?)",
+                movie.getYear(), movie.getTitle(), movie.getStudios(), movie.getProducers(), movie.getWinner()
+        );
+    }
 }

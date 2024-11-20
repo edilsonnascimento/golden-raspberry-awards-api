@@ -25,6 +25,7 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 	implementation("org.projectlombok:lombok:1.18.30")
 	annotationProcessor("org.projectlombok:lombok:1.18.30")
+	implementation("com.opencsv:opencsv:5.8")
 
 	testImplementation("org.projectlombok:lombok:1.18.30")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
