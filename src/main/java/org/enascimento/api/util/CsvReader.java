@@ -1,12 +1,15 @@
 package org.enascimento.api.util;
 
 import com.opencsv.bean.*;
+import org.slf4j.*;
 
-import java.io.*;
+import java.io.Reader;
 import java.nio.file.*;
 import java.util.List;
 
 public class CsvReader<T> implements FileReader<T> {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CsvReader.class);
 
     final Class<T> typeParameterClass;
 
@@ -19,7 +22,7 @@ public class CsvReader<T> implements FileReader<T> {
         try (Reader reader = Files.newBufferedReader(Paths.get(path))) {
             return read(reader);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("{}", e.getMessage(), e);
         }
         return null;
     }
@@ -34,7 +37,7 @@ public class CsvReader<T> implements FileReader<T> {
 
             return csvToBean.parse();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("{}", e.getMessage(), e);
         }
         return null;
     }

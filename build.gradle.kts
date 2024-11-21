@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.3.5"
@@ -35,5 +37,14 @@ dependencies {
 }
 
 tasks.withType<Test> {
-	useJUnitPlatform()
+	useJUnitPlatform ()
+	testLogging {
+		events = setOf(
+			TestLogEvent.PASSED,
+			TestLogEvent.FAILED,
+			TestLogEvent.SKIPPED
+		)
+	}
+	finalizedBy(tasks.withType<JacocoReport>())
 }
+

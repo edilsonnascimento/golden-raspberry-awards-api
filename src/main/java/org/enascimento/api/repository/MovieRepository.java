@@ -3,9 +3,9 @@ package org.enascimento.api.repository;
 import org.enascimento.api.domain.Movie;
 import org.enascimento.api.dto.ProducersWinnerDto;
 
-import java.util.List;
+import java.util.*;
 
 public interface MovieRepository {
-    List<ProducersWinnerDto> findAllProducerWinner();
+    Optional<List<ProducersWinnerDto>> findAllProducerWinner();
     void saveAll(List<Movie> movies);
 }

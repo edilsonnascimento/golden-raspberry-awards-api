@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class MovieRepositoryImpl implements MovieRepository {
@@ -15,8 +15,8 @@ public class MovieRepositoryImpl implements MovieRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<ProducersWinnerDto> findAllProducerWinner() {
-        return jdbcTemplate.query("""
+    public Optional<List<ProducersWinnerDto>> findAllProducerWinner() {
+        return Optional.of(jdbcTemplate.query("""
                                        SELECT producers,
                                               year_award
                                        FROM movie
@@ -25,7 +25,7 @@ public class MovieRepositoryImpl implements MovieRepository {
                                        """,
                                   (result, rowNum) ->
              new ProducersWinnerDto(result.getString("producers"),
-                                    Integer.valueOf(result.getString("year_award"))));
+                                    Integer.valueOf(result.getString("year_award")))));
     }
 
     @Override

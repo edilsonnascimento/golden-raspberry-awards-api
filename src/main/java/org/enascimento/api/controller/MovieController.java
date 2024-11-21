@@ -1,7 +1,7 @@
 package org.enascimento.api.controller;
 
 import org.enascimento.api.dto.ProducesWinnerResponseDto;
-import org.enascimento.api.service.MovieService;
+import org.enascimento.api.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class MovieController {
 
     @Autowired
-    private MovieService movieService;
+    private ProducerService movieService;
 
     @GetMapping("/min-max-winners")
     public ProducesWinnerResponseDto findMinAndMaxWinnerRange() {
