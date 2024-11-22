@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProducesWinnerResponseDto {
+public class ProducerWinnerResponseDto {
     private List<ProducerResponseDto> min;
     private List<ProducerResponseDto> max;
 }

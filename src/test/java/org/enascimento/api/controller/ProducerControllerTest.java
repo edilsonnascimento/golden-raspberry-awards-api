@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.jdbc.Sql;
 
-class MovieControllerTest extends TestIntegrationUtil {
+class ProducerControllerTest extends TestIntegrationUtil {
 
-    private static final String URI_BASE = "/v1/movies";
+    private static final String URI_BASE = "/v1/producers";
 
     @MockBean
     private DateTimeService dateTimeService;

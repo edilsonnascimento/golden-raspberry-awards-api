@@ -12,9 +12,9 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 
-class MovieControllerExceptionTest extends TestIntegrationUtil {
+class ProducerControllerExceptionTest extends TestIntegrationUtil {
 
-    private static final String URI_BASE = "/v1/movies";
+    private static final String URI_BASE = "/v1/producers";
 
     @MockBean
     private DateTimeService dateTimeService;
@@ -34,7 +34,7 @@ class MovieControllerExceptionTest extends TestIntegrationUtil {
                     "title": "Bad Request",
                     "status": 400,
                     "detail": "URI_INVALID",
-                    "instance": "/v1/movies/min-max-winners-INVALID",
+                    "instance": "/v1/producers/min-max-winners-INVALID",
                     "timestamp": "%s"
                 }
                 """.formatted(dateTimeNow);
@@ -61,7 +61,7 @@ class MovieControllerExceptionTest extends TestIntegrationUtil {
                     "title": "Conflict",
                     "status": 409,
                     "detail": "ERROR_NOT_FOUND_WINNERS",
-                    "instance": "/v1/movies/min-max-winners",
+                    "instance": "/v1/producers/min-max-winners",
                     "timestamp": "%s"
                 }
                 """.formatted(dateTimeNow);

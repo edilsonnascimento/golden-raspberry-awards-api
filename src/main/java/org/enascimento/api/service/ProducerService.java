@@ -14,7 +14,7 @@ public class ProducerService {
     @Autowired
     private MovieService movieService;
 
-    public ProducesWinnerResponseDto findMinAndMaxWinnerRange() {
+    public ProducerWinnerResponseDto findMinAndMaxWinnerRange() {
         Set<ProducerWinnerDto> producersWinner = movieService.findProducerWinners();
         Map<String, List<Integer>> producersWinnerMapYears = returnProducerMapper(producersWinner);
         List<ProducerResponseDto> producersResponse = returnProducerResponse(producersWinnerMapYears);
@@ -47,13 +47,13 @@ public class ProducerService {
         return producerResponseDto -> producerResponseDto.getInterval() > 0;
     }
 
-    private ProducesWinnerResponseDto returnProducesWinnerResponseDto(List<ProducerResponseDto> producersResponse) {
+    private ProducerWinnerResponseDto returnProducesWinnerResponseDto(List<ProducerResponseDto> producersResponse) {
         List<ProducerResponseDto> min = producersResponse.stream()
                 .filter(producerResponseDto -> producerResponseDto.getInterval() == 1)
                 .toList();
         List<ProducerResponseDto> max = producersResponse.stream()
                 .filter(producerResponseDto -> producerResponseDto.getInterval() != 1)
                 .toList();
-        return new ProducesWinnerResponseDto(min, max);
+        return new ProducerWinnerResponseDto(min, max);
     }
 }
