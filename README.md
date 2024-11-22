@@ -69,7 +69,7 @@ Este é um projeto desenvolvido com **Spring Boot** e **Gradle**, utilizando Jav
    git clone https://github.com/edilsonnascimento/golden-raspberry-awards-api
 2. **Acessa diretório**:
    ```bash
-   $ cd /golden-raspberry-awards-ap
+   $ cd /golden-raspberry-awards-api
       
 3. **Executar**:
    ```bash
