@@ -69,18 +69,18 @@ Este é um projeto desenvolvido com **Spring Boot** e **Gradle**, utilizando Jav
    git clone https://github.com/edilsonnascimento/golden-raspberry-awards-api
 2. **Acessa diretório**:
    ```bash
-   $ cd /golden-raspberry-awards-api
+   cd /golden-raspberry-awards-api
       
 3. **Executar**:
    ```bash
-   $ ./gradlew bootRun   
+   ./gradlew bootRun   
 
 ## Rodar os Testes de integração
 
 1. **Executar**:
    ```bash
-   $ ./gradlew test  
+   ./gradlew test  
    
 ## Executar endpoint via CURL
    ```bash
-   $ curl --location 'http://localhost:8080/v1/producers/min-max-winners'   
+   curl --location 'http://localhost:8080/v1/producers/min-max-winners'   
