@@ -4,7 +4,6 @@ import org.enascimento.api.service.DateTimeService;
 import org.enascimento.api.util.TestIntegrationUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.jdbc.Sql;
 
 class ProducerControllerTest extends TestIntegrationUtil {
 
@@ -14,8 +13,6 @@ class ProducerControllerTest extends TestIntegrationUtil {
     private DateTimeService dateTimeService;
 
     @Test
-    @Sql(value = "/data/produces-insert.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-    @Sql(value = "/data/trunc.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void shouldReturnMinMaxWinnersData() {
 
         var expected =
@@ -23,18 +20,18 @@ class ProducerControllerTest extends TestIntegrationUtil {
                 {
                     "min": [
                         {
-                            "name": "Diana Blue",
-                            "previousWin": 2021,
-                            "followingWin": 2022,
+                            "name": "Joel Silver",
+                            "previousWin": 1990,
+                            "followingWin": 1991,
                             "interval": 1
                         }
                     ],
                     "max": [
                         {
-                            "name": "Olivia Blue",
-                            "previousWin": 2015,
-                            "followingWin": 2025,
-                            "interval": 10
+                            "name": "Matthew Vaughn",
+                            "previousWin": 2002,
+                            "followingWin": 2015,
+                            "interval": 13
                         }
                     ]
                 }

@@ -10,7 +10,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import javax.sql.DataSource;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("test")
+@ActiveProfiles("default")
 @AutoConfigureWebTestClient(timeout = "36000")
 public abstract class TestIntegrationUtil {
     @Autowired

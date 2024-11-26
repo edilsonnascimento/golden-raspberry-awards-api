@@ -49,10 +49,13 @@ public class ProducerService {
 
     private ProducerWinnerResponseDto returnProducesWinnerResponseDto(List<ProducerResponseDto> producersResponse) {
         List<ProducerResponseDto> min = producersResponse.stream()
-                .filter(producerResponseDto -> producerResponseDto.getInterval() == 1)
+                .min(Comparator.comparingInt(ProducerResponseDto::getInterval))
+                .stream()
                 .toList();
+
         List<ProducerResponseDto> max = producersResponse.stream()
-                .filter(producerResponseDto -> producerResponseDto.getInterval() != 1)
+                .max(Comparator.comparingInt(ProducerResponseDto::getInterval))
+                .stream()
                 .toList();
         return new ProducerWinnerResponseDto(min, max);
     }
